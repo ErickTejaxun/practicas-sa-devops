@@ -1,19 +1,23 @@
 # Laboratorio Software Avanzado
-## Práctica 7
+## Práctica 10
 
-En esta práctica se ha tomado como base el proyecto de la práctica 6 y ahora implementar el ciclo CI/CD utilizando la metodología DevOps. 
+Esta práctica toma como base la práctica número 7 pero se ha agregado soporte para creación de imágenes docker como artefactos 
+por cada servicio y se han desplegado como contenedores de docker. 
+
+
+![Final](./output-3.png)
+![Final](./output-4.png)
+
 
 ## Servidor de integración continua : Jenkins
+### Steps
+- Creación de artefactos
+- Ejecución de artefactos
 
-Se ha instalado y configurado localmente un servidor de integración Jenkins con los siguientes stages:
 
-- Prueba de ejecución: Se prueba que los micro servicios se ejecuten correctamente.
-- Pruebas unitarias: Se lanzan pruebas unitarias.
-- Pruebas de cobertura: Se lanza el análisis de las pruebas usando sonar-scanner.
-- Creación artefactos: Se crean los artefactos utilizando gulp.
-- Entrega artefacto: Se copia el artefacto al directorio de entrega. 
-
-![Final](./jenkins-resultados.png)
+![Final](./pipeline-practica10.png)
+![Final](./output-1.png)
+![Final](./output-2.png)
 
 
 ## Logs de ejecución correcta de pipeline [logsJenkins.txt](./logsjenkins.txt)
