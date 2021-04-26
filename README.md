@@ -1,7 +1,9 @@
 # Laboratorio Software Avanzado
-## Práctica 9
+## Práctica 10
 
-Se toma como base la práctica anterior y se agrega un tercer servicio a la arquitectura para agregar conexión a volúmenes lógicos con docker. 
+Se toma como base la práctica No. 10 implementando ciclo DevOps utilizando
+acciones de github para implementar las acciones de CICD y poner en producción la arquitectura siguiente.
+
 
 
 ## Base de datos 1: Contenedor con Imagen Mysql:latest
