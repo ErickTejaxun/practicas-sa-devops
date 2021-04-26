@@ -21,5 +21,6 @@ pipeline
                 echo 'Pruebas unitarias'
                 sh 'dockre-compose up -d'                                            
             }            
-        }    
+        }
+    }    
 }
