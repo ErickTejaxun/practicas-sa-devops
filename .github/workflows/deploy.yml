@@ -8,5 +8,5 @@ jobs:
       - name: Desplegar arquitectura con acciones de github
         run: docker-compose up -d
       - name: Practica10
-        run: docker run --network container:servidor-web appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/        
+        run: docker run --network container:servidor-web -s --retry 10 --retry-connrefused http://localhost:5000/        
      
