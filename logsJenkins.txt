@@ -1,0 +1,499 @@
+Lanzada por el usuario admin
+Obtained Jenkinsfile from git https://github.com/ErickTejaxun/SA-Practicas
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins  in /var/lib/jenkins/workspace/Practica7-CI-CD
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+using credential ericktejaxun-credentials
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/ErickTejaxun/SA-Practicas # timeout=10
+Fetching upstream changes from https://github.com/ErickTejaxun/SA-Practicas
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+using GIT_ASKPASS to set credentials ericktejaxun-credentials
+ > git fetch --tags --progress -- https://github.com/ErickTejaxun/SA-Practicas +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/Practica07^{commit} # timeout=10
+Checking out Revision 000b179482eeadd174020c790c2b7bd412a3b55b (refs/remotes/origin/Practica07)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 000b179482eeadd174020c790c2b7bd412a3b55b # timeout=10
+Commit message: "Fixed sonar-quebe-scanner directory"
+ > git rev-list --no-walk 000b179482eeadd174020c790c2b7bd412a3b55b # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Prueba de ejecución de los artefactos.)
+[Pipeline] echo
+Pruebas de construcción de servicio cliente
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src
+[Pipeline] {
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src/cliente
+[Pipeline] {
+[Pipeline] sh
++ npm install
+
+up to date, audited 221 packages in 1s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm start
+
+> restaurante@1.0.0 start
+> forever start app.js
+
+[33mwarn[39m:    --minUptime not set. Defaulting to: 1000ms
+[33mwarn[39m:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
+[32minfo[39m:    Forever processing file: [90mapp.js[39m
+(node:5345) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5345) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] sh
++ forever stopall
+(node:5393) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5393) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+[32minfo[39m:    Forever stopped processes:
+[90mdata[39m:    [37m   [39m [37muid[39m  [90mcommand[39m             [90mscript[39m [37mforever[39m [37mpid[39m  [37mid[39m [35mlogfile[39m                            [33muptime[39m      
+[90mdata[39m:    [0] AOig [90m/usr/local/bin/node[39m [90mapp.js[39m 5357    5365    [35m/var/lib/jenkins/.forever/AOig.log[39m [33m0:0:0:0.624[39m 
+[Pipeline] sh
++ sleep 3
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src/esb
+[Pipeline] {
+[Pipeline] sh
++ npm install
+
+up to date, audited 334 packages in 2s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+6 low severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+[Pipeline] sh
++ npm start
+
+> restaurante@1.0.0 start
+> forever start app.js
+
+[33mwarn[39m:    --minUptime not set. Defaulting to: 1000ms
+[33mwarn[39m:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
+[32minfo[39m:    Forever processing file: [90mapp.js[39m
+(node:5733) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5733) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] sh
++ sleep 3
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src/repartidor
+[Pipeline] {
+[Pipeline] sh
++ npm install
+
+up to date, audited 334 packages in 2s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+6 low severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+[Pipeline] sh
++ npm start
+
+> restaurante@1.0.0 start
+> forever start app.js
+
+[33mwarn[39m:    --minUptime not set. Defaulting to: 1000ms
+[33mwarn[39m:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
+[32minfo[39m:    Forever processing file: [90mapp.js[39m
+(node:6079) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6079) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] sh
++ sleep 3
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src/restaurante
+[Pipeline] {
+[Pipeline] sh
++ npm install
+
+up to date, audited 501 packages in 9s
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+6 low severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+[Pipeline] sh
++ npm start
+
+> restaurante@1.0.0 start
+> forever start app.js
+
+[33mwarn[39m:    --minUptime not set. Defaulting to: 1000ms
+[33mwarn[39m:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
+[32minfo[39m:    Forever processing file: [90mapp.js[39m
+(node:6597) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6597) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Realización de pruebas unitarias)
+[Pipeline] echo
+Pruebas unitarias
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src
+[Pipeline] {
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src/restaurante
+[Pipeline] {
+[Pipeline] sh
++ mocha test
+
+
+  Pruebas unitarias sobre la clase pedido que contiene la lógica de pedidos
+    ✓ Instancia correcta de la clase pedido
+    ✓ Verificando el estado inicial del nuevo pedido <<En espera>>
+    ✓ Verificando cambio de estado a <<En preparacion>>
+    ✓ Verificando cambio de estado a <<Enviado, en camino>>
+    ✓ Verificando cambio de estado a <<Entregado>>
+
+
+  5 passing (19ms)
+
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Realizando pruebas de cobertura  a través de sonarqube ) (Realizando pruebas de cobertura  a través de sonarqube )
+[Pipeline] echo
+Lanzando prueba con sonarqube scanner.
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src
+[Pipeline] {
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/Practica7-CI-CD/src/restaurante
+[Pipeline] {
+[Pipeline] sh
++ npm test
+
+> restaurante@1.0.0 test
+> nyc --reporter=lcov --reporter=text-lcov mocha test/*.js
+
+
+
+  Pruebas unitarias sobre la clase pedido que contiene la lógica de pedidos
+    ✓ Instancia correcta de la clase pedido
+    ✓ Verificando el estado inicial del nuevo pedido <<En espera>>
+    ✓ Verificando cambio de estado a <<En preparacion>>
+    ✓ Verificando cambio de estado a <<Enviado, en camino>>
+    ✓ Verificando cambio de estado a <<Entregado>>
+
+
+  5 passing (8ms)
+
+TN:
+SF:utils/pedidos.js
+FN:3,(anonymous_0)
+FN:12,(anonymous_1)
+FN:31,(anonymous_2)
+FN:36,(anonymous_3)
+FN:42,(anonymous_4)
+FN:48,(anonymous_5)
+FN:56,(anonymous_6)
+FNF:7
+FNH:5
+FNDA:1,(anonymous_0)
+FNDA:3,(anonymous_1)
+FNDA:1,(anonymous_2)
+FNDA:1,(anonymous_3)
+FNDA:1,(anonymous_4)
+FNDA:0,(anonymous_5)
+FNDA:0,(anonymous_6)
+DA:5,1
+DA:6,1
+DA:7,1
+DA:8,1
+DA:9,1
+DA:14,3
+DA:17,1
+DA:18,1
+DA:21,1
+DA:22,1
+DA:25,1
+DA:26,1
+DA:33,1
+DA:38,1
+DA:44,1
+DA:50,0
+DA:58,0
+DA:59,0
+DA:64,1
+DA:141,1
+DA:160,1
+DA:161,1
+DA:162,1
+DA:163,1
+LF:24
+LH:21
+BRDA:14,0,0,1
+BRDA:14,0,1,1
+BRDA:14,0,2,1
+BRF:3
+BRH:3
+end_of_record
+[Pipeline] sh
++ /usr/bin/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner -Dsonar.projectKey=Practica7_SA -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=819cb68dd36cd6f6d15cd792a26b61a459e05c9d
+INFO: Scanner configuration file: /usr/bin/sonar-scanner-4.4.0.2170-linux/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 4.4.0.2170
+INFO: Java 11.0.3 AdoptOpenJDK (64-bit)
+INFO: Linux 5.4.0-67-generic amd64
+INFO: User cache: /var/lib/jenkins/.sonar/cache
+INFO: Scanner configuration file: /usr/bin/sonar-scanner-4.4.0.2170-linux/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: Analyzing on SonarQube server 8.7.1
+INFO: Default locale: "es_ES", source code encoding: "UTF-8"
+INFO: Load global settings
+INFO: Load global settings (done) | time=102ms
+INFO: Server id: BF41A1F2-AXgz5FzhU5Ro6tGE-esW
+INFO: User cache: /var/lib/jenkins/.sonar/cache
+INFO: Load/download plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=82ms
+INFO: Load/download plugins (done) | time=161ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=18ms
+INFO: Execute project builders
+INFO: Execute project builders (done) | time=3ms
+INFO: Project key: Practica7_SA
+INFO: Base dir: /var/lib/jenkins/workspace/Practica7-CI-CD/src/restaurante
+INFO: Working dir: /var/lib/jenkins/workspace/Practica7-CI-CD/src/restaurante/.scannerwork
+INFO: Load project settings for component key: 'Practica7_SA'
+INFO: Load project settings for component key: 'Practica7_SA' (done) | time=53ms
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=93ms
+INFO: Auto-configuring with CI 'Jenkins'
+INFO: Load active rules
+INFO: Load active rules (done) | time=2028ms
+INFO: Indexing files...
+INFO: Project configuration:
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=19ms
+INFO: 17 files indexed
+INFO: 6029 files ignored because of scm ignore settings
+INFO: Quality profile for css: Sonar way
+INFO: Quality profile for js: Sonar way
+INFO: Quality profile for web: Sonar way
+INFO: ------------- Run sensors on module Practica7_SA
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=121ms
+INFO: Sensor CSS Metrics [cssfamily]
+INFO: Sensor CSS Metrics [cssfamily] (done) | time=119ms
+INFO: Sensor CSS Rules [cssfamily]
+INFO: 7 source files to be analyzed
+INFO: 7/7 source files have been analyzed
+INFO: Sensor CSS Rules [cssfamily] (done) | time=2131ms
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=7ms
+INFO: Sensor JavaScript analysis [javascript]
+INFO: 5 source files to be analyzed
+INFO: 5/5 source files have been analyzed
+INFO: Sensor JavaScript analysis [javascript] (done) | time=6138ms
+INFO: Sensor C# Properties [csharp]
+INFO: Sensor C# Properties [csharp] (done) | time=2ms
+INFO: Sensor JavaXmlSensor [java]
+INFO: Sensor JavaXmlSensor [java] (done) | time=1ms
+INFO: Sensor HTML [web]
+INFO: Sensor HTML [web] (done) | time=566ms
+INFO: Sensor VB.NET Properties [vbnet]
+INFO: Sensor VB.NET Properties [vbnet] (done) | time=2ms
+INFO: ------------- Run sensors on project
+INFO: Sensor Zero Coverage Sensor
+INFO: Sensor Zero Coverage Sensor (done) | time=12ms
+INFO: SCM Publisher SCM provider for this project is: git
+INFO: SCM Publisher 2 source files to be analyzed
+INFO: SCM Publisher 0/2 source files have been analyzed (done) | time=298ms
+WARN: Missing blame information for the following files:
+WARN:   * coverage/lcov-report/index.html
+WARN:   * coverage/lcov-report/pedidos.js.html
+WARN: This may lead to missing/broken features in SonarQube
+INFO: CPD Executor Calculating CPD for 11 files
+INFO: CPD Executor CPD calculation finished (done) | time=60ms
+INFO: Analysis report generated in 78ms, dir size=404 KB
+INFO: Analysis report compressed in 52ms, zip size=91 KB
+INFO: Analysis report uploaded in 284ms
+INFO: ANALYSIS SUCCESSFUL, you can browse http://localhost:9000/dashboard?id=Practica7_SA
+INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+INFO: More about the report processing at http://localhost:9000/api/ce/task?id=AXhYTi2Ribe4q99LqivZ
+INFO: Analysis total time: 20.902 s
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION SUCCESS
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 22.249s
+INFO: Final Memory: 13M/50M
+INFO: ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] sh
++ forever stopall
+(node:7677) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7677) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+[32minfo[39m:    Forever stopped processes:
+[90mdata[39m:    [37m   [39m [37muid[39m  [90mcommand[39m             [90mscript[39m [37mforever[39m [37mpid[39m  [37mid[39m [35mlogfile[39m                            [33muptime[39m       
+[90mdata[39m:    [0] b4Py [90m/usr/local/bin/node[39m [90mapp.js[39m 5766    5796    [35m/var/lib/jenkins/.forever/b4Py.log[39m [33m0:0:0:53.177[39m 
+[90mdata[39m:    [1] KgKu [90m/usr/local/bin/node[39m [90mapp.js[39m 6099    6137    [35m/var/lib/jenkins/.forever/KgKu.log[39m [33m0:0:0:45.245[39m 
+[90mdata[39m:    [2] 9dT6 [90m/usr/local/bin/node[39m [90mapp.js[39m 6626    6646    [35m/var/lib/jenkins/.forever/9dT6.log[39m [33m0:0:0:30.009[39m 
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Creación de artefactos)
+[Pipeline] echo
+Empaquetando artefactos a través de gulp
+[Pipeline] sh
++ npm install gulp
+
+up to date, audited 429 packages in 2s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm install gulp-zip
+
+up to date, audited 429 packages in 2s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm install gulp-clean
+
+up to date, audited 429 packages in 3s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm install gulp-uglify
+
+up to date, audited 429 packages in 2s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm install gulp-copy
+
+up to date, audited 429 packages in 8s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm install gulp-run
+
+up to date, audited 429 packages in 2s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ gulp --continue
+[23:00:52] Using gulpfile ~/workspace/Practica7-CI-CD/gulpfile.js
+[23:00:52] Starting 'default'...
+[23:00:52] Starting 'limpiarDest'...
+Limpiando carpeta dist.
+[23:00:52] Finished 'limpiarDest' after 10 ms
+[23:00:52] Starting 'minificar'...
+[23:00:52] Finished 'minificar' after 11 ms
+[23:00:52] Starting 'build'...
+Creando artefacto cliente.zip para su distribución.
+Creando artefacto esb.zip para su distribución.
+Creando artefacto repartidor.zip para su distribución.
+Creando artefacto restaurante.zip para su distribución.
+[23:00:52] Finished 'build' after 8.85 ms
+[23:00:52] Starting 'buildSystem'...
+Creando artefactos para su distribución.
+[23:00:52] Finished 'buildSystem' after 4.12 ms
+[23:00:52] Finished 'default' after 38 ms
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Entrega de artefacto)
+[Pipeline] echo
+Copiando artefacto en servidor
+[Pipeline] echo
+Limpiando entregables temporales
+[Pipeline] sh
++ gulp limpiar
+[23:00:54] Using gulpfile ~/workspace/Practica7-CI-CD/gulpfile.js
+[23:00:54] Starting 'limpiar'...
+Limpiando carpeta dist.
+[23:00:54] Finished 'limpiar' after 12 ms
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
