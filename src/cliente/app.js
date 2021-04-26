@@ -13,13 +13,18 @@ var PORTREPARTIDOR  = 5600;
 var PORTCLIENTE     = 5800;
 var PORTEBS         = 6000;
 
+var cliente_dir = "servidor-cliente";
+var esb_dir = "servidor-esb";
+var repartidor_dir = "servidor-repartidor";
+var restaurante_dir = "servidor-restaurante";
+
 /**
  * 
  * @param {*} codigo  Codigo del pedido que se ha registrado y se envía al restaurante.
  */
 var enviarPedidoRestaurante = function(codigo)
 {
-    var host = 'localhost';
+    var host = esb_dir;
     var port = PORTEBS;
     var path = '/restaurante/pedido/'+codigo;
 

@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  cliente:
+    container_name: servidor-cliente
+    build: ./src/cliente
+    image: servidor-cliente-image
+    ports:
+      - "5800:5800"    
+  esb:
+    container_name: servidor-esb
+    build: ./src/esb
+    image: servidor-esb-image
+    ports:
+      - "6000:6000" 
+  repartidor:
+    container_name: servidor-repartidor
+    build: ./src/repartidor
+    image: servidor-repartidor-image
+    ports:
+      - "5600:5600"     
+  restaurante:
+    container_name: servidor-restaurante
+    build: ./src/restaurante
+    image: servidor-restaurante-image
+    ports:
+      - "5000:5000"     

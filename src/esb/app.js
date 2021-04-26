@@ -12,6 +12,11 @@ var PORTRESTAURANTE = 5000;
 var PORTREPARTIDOR  = 5600;
 var PORTCLIENTE     = 5800;
 var PORTEBS         = 6000;
+var cliente_dir = "servidor-cliente";
+var esb_dir = "servidor-esb";
+var repartidor_dir = "servidor-repartidor";
+var restaurante_dir = "servidor-restaurante";
+
 var CONT =0;
 var pedidos = [];
 
@@ -51,7 +56,7 @@ function simularTiempoEntrega()
  */
 var actualizarEstado = function(codigo)
 {
-    var host = 'localhost';
+    var host = restaurante_dir;
     var port = PORTRESTAURANTE;
     var path = '/pedido/status/close/'+codigo;
 
@@ -87,7 +92,7 @@ var actualizarEstado = function(codigo)
 
 var notificarCliente = function(codigo)
 {
-    var host = 'localhost';
+    var host = cliente_dir;
     var port = PORTCLIENTE;
     var path = '/pedido/notificacion/'+codigo;
 
@@ -121,7 +126,7 @@ var notificarCliente = function(codigo)
 
 var entregar = function(codigo)
 {
-    var host = 'localhost';
+    var host = restaurante_dir;
     var port = PORTRESTAURANTE;
     var path = '/pedido/update';
 
@@ -153,15 +158,15 @@ var entregar = function(codigo)
 
 
 
-async function senGetRequest(PORT, PATH, VALUE)
+async function senGetRequest(HOST, PORT, PATH, VALUE)
 {
-    var retorno = invokeGet(PORT, PATH, VALUE);    
+    var retorno = invokeGet(HOST, PORT, PATH, VALUE);    
     return retorno;
 }
 
-function invokeGet(PORT, PATH, VALUE)
+function invokeGet(HOST, PORT, PATH, VALUE)
 {
-    var host = 'localhost';
+    var host = HOST;
     var port = PORT;
     var path = PATH+ VALUE;
 
@@ -196,16 +201,16 @@ function invokeGet(PORT, PATH, VALUE)
 
 
 
-async function senPostRequest(PORT, PATH, VALUE)
+async function senPostRequest(HOST, PORT, PATH, VALUE)
 {
-    var retorno = invokePost(PORT, PATH, VALUE);    
+    var retorno = invokePost(HOST, PORT, PATH, VALUE);    
     return retorno;
 }
 
 
-function invokePost(PORT, PATH, VALUE)
+function invokePost(HOST, PORT, PATH, VALUE)
 {
-    var host = 'localhost';
+    var host = HOST;
     var port = PORT;
     var path = PATH;
 
@@ -252,7 +257,7 @@ function invokePost(PORT, PATH, VALUE)
  {
     var codigo = req.body.codigo;
     console.log('1)***********EBS: Redirigiendo petición de pedido al servicio cliente.       ' + codigo + '****');
-    var rep =  senGetRequest(PORTCLIENTE, '/pedido/', codigo);       
+    var rep =  senGetRequest(cliente_dir, PORTCLIENTE, '/pedido/', codigo);       
     res.send('Su pedido ha sido enviado al restaurante.');
  });
 
@@ -266,7 +271,7 @@ app.get('/cliente/notificacion/:codigo', async (req, res)=>
 {
     var codigo = req.params['codigo'];
     console.log('5)***********EBS: Redirigiendo petición de notificacion servicio cliente.       ' + codigo + '****');
-    var rep =  senGetRequest(PORTCLIENTE, '/pedido/notificacion/', codigo);   
+    var rep =  senGetRequest(cliente_dir,PORTCLIENTE, '/pedido/notificacion/', codigo);   
     var mensaje = "\n---------------------\nConfirmación de pedido " + codigo+ " recibido.\n---------------------\n";
     res.send(mensaje);
 });
@@ -281,7 +286,7 @@ app.get('/restaurante/pedido/:pedido', async (req, res)=>
 {
     var codigo = req.params['pedido'];
     console.log('2)***********EBS: Redirigiendo petición de notificacion de pedido al restaurante.       ' + codigo + '****');
-    var rep =  senGetRequest(PORTRESTAURANTE, '/pedido/', codigo);   
+    var rep =  senGetRequest(restaurante_dir, PORTRESTAURANTE, '/pedido/', codigo);   
     var mensaje = "\n---------------------\nConfirmación de pedido " + codigo+ " enviado al restaurante.\n---------------------\n";
     res.send(mensaje);
 });
@@ -295,7 +300,7 @@ app.post('/repartidor/pedido/recoger', async (req, res)=>
 {
     var codigo = req.body.codigo;
     console.log('3)***********EBS: Redirigiendo petición de notificacion de recoger pedido al repartidor.       ' + codigo + '****');
-    var rep =  senPostRequest(PORTREPARTIDOR, '/pedido/recoger', codigo);   
+    var rep =  senPostRequest(repartidor_dir, PORTREPARTIDOR, '/pedido/recoger', codigo);   
     var mensaje = "\n---------------------\nConfirmación de notificación del pedido  " + codigo+ " al repartidor.\n---------------------\n";
     res.send(mensaje);
 });
@@ -305,7 +310,7 @@ app.get('/restaurante/pedido/status/close/:codigo', async (req,res)=>
 {
     var codigo = req.params['codigo'];
     console.log('4)***********EBS: Redirigiendo petición de notificacion de entrega al restaurante.       ' + codigo + '****');
-    var rep =  senGetRequest(PORTRESTAURANTE, '/pedido/status/close/', codigo);   
+    var rep =  senGetRequest(restaurante_dir, PORTRESTAURANTE, '/pedido/status/close/', codigo);   
     var mensaje = "\n---------------------\nConfirmación de entrega de confirmación de entrega del pedido  " + codigo+ " al restaurante.\n---------------------\n";
     res.send(mensaje);    
 });

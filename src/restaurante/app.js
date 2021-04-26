@@ -15,6 +15,11 @@ var PORTRESTAURANTE = 5000;
 var PORTREPARTIDOR  = 5600;
 var PORTCLIENTE     = 5800;
 var PORTEBS         = 6000;
+var cliente_dir = "servidor-cliente";
+var esb_dir = "servidor-esb";
+var repartidor_dir = "servidor-repartidor";
+var restaurante_dir = "servidor-restaurante";
+
 var pedidos = [];
 var contadorPedido = 0;
 
@@ -32,7 +37,7 @@ pedidos.push(pedido2);
  */
 var avisarRepartidor = function(codigo)
 {
-    var host = 'localhost';
+    var host = esb_dir;
     var port = PORTEBS;
     var path = '/repartidor/pedido/recoger';
 
@@ -142,7 +147,7 @@ app.get('/pedido/:pedido', (req, res)=>
         pedidos.push(pedido);
         simularPreparacionPedido(pedido);
     }
-    return res.json(restaurantes);
+    return res.json("{}");
 });
 
 

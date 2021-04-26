@@ -12,6 +12,10 @@ var PORTRESTAURANTE = 5000;
 var PORTREPARTIDOR  = 5600;
 var PORTCLIENTE     = 5800;
 var PORTEBS         = 6000;
+var cliente_dir = "servidor-cliente";
+var esb_dir = "servidor-esb";
+var repartidor_dir = "servidor-repartidor";
+var restaurante_dir = "servidor-restaurante";
 
 var pedidos = [];
 
@@ -51,7 +55,7 @@ function simularTiempoEntrega()
  */
 var notificarEntregaRestaurante = function(codigo)
 {
-    var host = 'localhost';
+    var host = esb_dir;
     var port = PORTEBS;
     var path = '/restaurante/pedido/status/close/'+codigo;
 
@@ -90,7 +94,7 @@ var notificarEntregaRestaurante = function(codigo)
  */
 var notificarEntregaCliente = function(codigo)
 {
-    var host = 'localhost';
+    var host = esb_dir;
     var port = PORTEBS;
     var path = '/cliente/notificacion/'+codigo;
 
@@ -145,7 +149,7 @@ app.post('/pedido/recoger', (req, res)=>
  */
 var entregar = function(codigo)
 {
-    var host = 'localhost';
+    var host = esb_dir;
     var port = PORTEBS;
     var path = '/pedido/update';
 
