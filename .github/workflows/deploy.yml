@@ -8,5 +8,4 @@ jobs:
       - name: Desplegar arquitectura con acciones de github
         run: docker-compose up -d
       - name: Practica10
-         run: docker run --network container:servidor-web         
-     
+         run: docker run --network container:servidor-web
