@@ -9,16 +9,14 @@ pipeline
             steps
             {         
                 echo 'Creando artefactos'
-                sh 'docker-compose down'
-                sh 'docker-compose build'                                                          
+                sh 'docker-compose down'                
             }                                    
         }
 
         stage("Ejecución de artefactos")
         {
             steps
-            {
-                echo 'Pruebas unitarias'
+            {                
                 sh 'dockre-compose up -d'                                            
             }            
         }
