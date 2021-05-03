@@ -1,12 +1,21 @@
 # Laboratorio Software Avanzado
-## Práctica 11
+## Práctica 12
 
 Esta práctica tiene como objetivo mostrar la utilización de Terraform 
 para la implementación de la práctica de Infraestructura como código. 
 
-### Infraestructura
-- Firewall que permita el tráfico web a través del puerto 8080
-- Instancia de máquina virtual como servidor web. 
+Basandonos en la práctica número 11, vamos a utilizar terraform para clonar 
+la infraestructura de un despliegue para poder replicarlo.
+
+terraform import google_compute_instance.default projects/poised-diagram-177008/zones/us-east1-b/instances/servidor-web
+terraform show -no-color > nuevo/main.tf
+
+![Enlace al video](https://youtu.be/kA4jhUy7yNE)
+https://youtu.be/kA4jhUy7yNE
+
+
+![Final](./terraform-import.png)
+
 
 ### Despliegue de la intraestructura
 ![Final](./terraform-apply.png)
